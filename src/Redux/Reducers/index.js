@@ -21,11 +21,15 @@ export default function (state = INITIAL_STATE, actions) {
             const newValue = parseFloat(newDisplayValue)
             const myValues = [...state.values]
             myValues[i] = newValue
-            return { ...state, displayValue: newDisplayValue, 
-                values: actions.payload !== '.' ? myValues : state.values, 
+            return {
+                ...state, displayValue: newDisplayValue,
+                values: actions.payload !== '.' ? myValues : state.values,
                 clearDisplay: false
             }
         case 'SET_OPERATOR':
+            if (state.values[0] === 0) {
+                return { ...state }
+            }
             if (state.current === 0) {
                 return { ...state, operation: actions.payload, current: 1, clearDisplay: true }
             } else {
