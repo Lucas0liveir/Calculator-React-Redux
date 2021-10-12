@@ -1,4 +1,4 @@
-## A basic concepts of Redux API in React
+## A basic of Redux API in React
 
 ### Calculator
 ## Available Scripts
